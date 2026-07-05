@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Amul Kool Café - Gallery &amp; Legal</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#ffe088",
+                        "secondary-container": "#fdb56c",
+                        "on-background": "#1a1c1a",
+                        "background": "#faf9f6",
+                        "surface-container-low": "#f4f3f1",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#774401",
+                        "tertiary": "#735c00",
+                        "tertiary-fixed-dim": "#e9c349",
+                        "surface-container-high": "#e9e8e5",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "surface": "#faf9f6",
+                        "primary": "#0c0301",
+                        "secondary": "#885210",
+                        "on-secondary-fixed-variant": "#693c00",
+                        "on-primary-fixed": "#281810",
+                        "surface-tint": "#71594f",
+                        "on-tertiary-container": "#4f3e00",
+                        "surface-container": "#efeeeb",
+                        "on-secondary-fixed": "#2c1600",
+                        "primary-fixed": "#fcdcce",
+                        "inverse-surface": "#2f312f",
+                        "on-primary-container": "#9b8075",
+                        "on-primary-fixed-variant": "#584238",
+                        "surface-container-highest": "#e3e2e0",
+                        "outline-variant": "#d3c3bd",
+                        "surface-dim": "#dbdad7",
+                        "primary-container": "#2b1a12",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#241a00",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#81746f",
+                        "secondary-fixed": "#ffdcbe",
+                        "surface-variant": "#e3e2e0",
+                        "primary-fixed-dim": "#dfc0b3",
+                        "inverse-on-surface": "#f2f1ee",
+                        "on-surface-variant": "#4f4540",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#cca830",
+                        "inverse-primary": "#dfc0b3",
+                        "on-surface": "#1a1c1a",
+                        "secondary-fixed-dim": "#ffb870",
+                        "surface-bright": "#faf9f6",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max-width": "1440px",
+                        "base": "8px",
+                        "section-gap-mobile": "64px",
+                        "section-gap-desktop": "120px",
+                        "margin-mobile": "24px",
+                        "gutter": "24px",
+                        "margin-desktop": "80px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Bodoni Moda"],
+                        "headline-lg": ["Bodoni Moda"],
+                        "body-md": ["Montserrat"],
+                        "display-lg": ["Bodoni Moda"],
+                        "headline-lg-mobile": ["Bodoni Moda"],
+                        "label-sm": ["Montserrat"],
+                        "body-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "500" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "display-lg": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0.01em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="/assets/css/style.css" rel="stylesheet"/>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 bg-surface/60 dark:bg-primary/40 backdrop-blur-2xl border-b border-white/10 transition-all duration-300">
+        <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 w-full max-w-container-max-width mx-auto">
+            <a href="/index.html" class="font-headline-md text-2xl lg:text-headline-md font-bold text-primary dark:text-tertiary-fixed">
+                Amul Kool Café
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a class="text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-primary transition-colors" href="/product.html">Product</a>
+                <a class="text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-primary transition-colors" href="/product.html#ingredients">Ingredients</a>
+                <a class="text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-primary transition-colors" href="/product.html#benefits">Benefits</a>
+                <a class="text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-primary transition-colors" href="/product.html#nutrition">Nutrition</a>
+                <a class="text-secondary dark:text-secondary-fixed-dim font-bold border-b-2 border-secondary pb-1" href="/gallery.html">Gallery</a>
+                <a class="text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-primary transition-colors" href="/about.html">Story</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-primary hover:text-secondary dark:text-tertiary-fixed-dim transition-colors group p-2">
+                    <span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">search</span>
+                </button>
+                <button class="bg-primary text-on-primary dark:bg-primary-container dark:text-tertiary-fixed px-6 py-2.5 rounded-full font-label-sm uppercase tracking-widest hover:bg-secondary dark:hover:bg-primary transition-colors shadow-md hover:scale-95 duration-200">
+                    Buy Now
+                </button>
+                <!-- Hamburger Toggle -->
+                <button id="mobile-menu-toggle" class="md:hidden text-primary dark:text-tertiary-fixed p-2 focus:outline-none" aria-label="Toggle Menu">
+                    <span class="material-symbols-outlined text-2xl">menu</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Drawer Overlay -->
+    <div id="mobile-menu-drawer" class="fixed inset-0 z-[100] bg-primary/95 dark:bg-primary/98 backdrop-blur-2xl translate-x-full pointer-events-none mobile-menu-drawer flex flex-col justify-between p-8 md:hidden">
+        <div class="flex justify-between items-center">
+            <span class="font-headline-md text-2xl font-bold text-tertiary-fixed-dim">Amul Kool Café</span>
+            <button id="mobile-menu-close" class="text-tertiary-fixed-dim p-2 focus:outline-none" aria-label="Close Menu">
+                <span class="material-symbols-outlined text-3xl">close</span>
+            </button>
+        </div>
+        <div class="flex flex-col gap-6 text-center my-auto">
+            <a class="text-outline-variant hover:text-tertiary-fixed font-headline-md text-2xl transition-colors py-2" href="/index.html">Home</a>
+            <a class="text-outline-variant hover:text-tertiary-fixed font-headline-md text-2xl transition-colors py-2" href="/product.html">Product</a>
+            <a class="text-outline-variant hover:text-tertiary-fixed font-headline-md text-2xl transition-colors py-2" href="/product.html#ingredients">Ingredients</a>
+            <a class="text-outline-variant hover:text-tertiary-fixed font-headline-md text-2xl transition-colors py-2" href="/product.html#benefits">Benefits</a>
+            <a class="text-outline-variant hover:text-tertiary-fixed font-headline-md text-2xl transition-colors py-2" href="/product.html#nutrition">Nutrition</a>
+            <a class="text-outline-variant hover:text-tertiary-fixed font-headline-md text-2xl transition-colors py-2" href="/gallery.html">Gallery</a>
+            <a class="text-outline-variant hover:text-tertiary-fixed font-headline-md text-2xl transition-colors py-2" href="/about.html">Story</a>
+        </div>
+        <div class="flex flex-col gap-4 items-center">
+            <button class="bg-tertiary-fixed text-primary font-label-sm text-sm uppercase tracking-widest w-full py-4 rounded-full hover:bg-white transition-colors">
+                Buy Now
+            </button>
+            <p class="text-on-primary-fixed-variant text-xs mt-2">© 2026 Amul Kool Café. Crafted for Opulence.</p>
+        </div>
+    </div>
+
+    <!-- Main Content Canvas -->
+    <main class="pt-[120px] pb-section-gap-mobile md:pt-[160px] md:pb-section-gap-desktop">
+        <!-- SECTION: GALLERY & LIFESTYLE -->
+        <section class="px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto mb-section-gap-mobile md:mb-section-gap-desktop" id="gallery">
+            <div class="mb-16 md:w-2/3 reveal active">
+                <h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-primary mb-6">The Velvet Roast Experience.</h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">Curated moments of opulence. Witness the intersection of modern lifestyle and cold coffee perfection.</p>
+            </div>
+            <div class="masonry-grid">
+                <!-- Image 1 -->
+                <div class="masonry-item rounded-2xl overflow-hidden relative group reveal">
+                    <img alt="Morning Ritual" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj2Tq3DZaEydOdQyRCVLeELJt-aa4aXjlPjJkFyK9v_QIyktLyWaEJIgodMkmTi_WZKNbDKjEU2tV7htMpd6-yHlTG7wWyuISOYH8V2zWl2CbCXQotSFG0PkKKRemmI_1jQKvzOw1UCOVeXyufa7M9WQ4wPASn9VOE5xhRH6hiR1fPddukVSIM5nZE_09qUh1wN2KWQitwQa0ts6hbKk56eB4C5lCf7nlfcHdubCtpIZDEuAKjXe_yQw"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <span class="text-on-primary font-label-sm text-label-sm bg-surface-tint/40 backdrop-blur-md px-4 py-2 rounded-full">Morning Ritual</span>
+                    </div>
+                </div>
+                <!-- Image 2 -->
+                <div class="masonry-item rounded-2xl overflow-hidden relative group reveal" style="transition-delay: 100ms;">
+                    <img alt="Velvety Crema" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYXqnHiwT-Y1Agkkl14pX1vAPi_YZ4Ektzdu_ktG1DSIHFkHqWd-Mv7DYD4mVvrYKSPRs6JiN0iWH0ihBOv7ymgF8rXDTxy6g0ZKvVr9Hel4dEANTYeR3Mzl-0U45xLYYzS1GePjmAFgepI3s_2dG-p-yYOnTxuIdJULfp6qxpL0yOMSbunP8wY6AX_Gpuql0RNFSItKpaYH-SzySJUyI-WnZIG9pJmlnDmvdKUx47I-9cNyN-TcLT3A"/>
+                </div>
+                <!-- Image 3 -->
+                <div class="masonry-item rounded-2xl overflow-hidden relative group reveal" style="transition-delay: 200ms;">
+                    <img alt="Alfresco Elegance" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2OpEpuuiEDFYhbLuxDHb9hLmlwunTOa10n-TD1OpoqqtiLw6S1H_BJzPrlAkwtUFq1VBcHIkLKXcfwZ__UV4uJoDw8DVEuIEiw2nNAz1kf3QtreHY1zGxrG7K34ilTOEjy2AD0oFwLEpczDL1R-LDoFNmSUruLLrYFVo2SJPltGEP-slfU2IhBDm8Kyzm4BWNcUCCng6szD8N44hr2oxo2KVbLYc_rNDQT7vAg6JfNyIJ46ApCZr-IA"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <span class="text-on-primary font-label-sm text-label-sm bg-surface-tint/40 backdrop-blur-md px-4 py-2 rounded-full">Alfresco Elegance</span>
+                    </div>
+                </div>
+                <!-- Interactive Action Card -->
+                <div class="masonry-item rounded-2xl overflow-hidden glass-panel p-8 flex flex-col justify-center items-center text-center reveal">
+                    <span class="material-symbols-outlined text-4xl text-secondary mb-4">local_cafe</span>
+                    <h3 class="font-headline-md text-2xl text-primary mb-2">Share Your Sip</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">Tag @AmulKoolCafe to be featured in our curated gallery.</p>
+                    <button class="bg-transparent border border-secondary text-secondary font-label-sm text-label-sm px-6 py-2 rounded-full hover:bg-secondary hover:text-on-secondary transition-colors">Follow Us</button>
+                </div>
+                <!-- Image 5 -->
+                <div class="masonry-item rounded-2xl overflow-hidden relative group reveal">
+                    <img alt="Barista Craft" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXdXaoEB6ujb3qB0dl0HdWdNPwNIDT4cmjIaQlnFgdlF27Yzfz1dbJLvAfOWjzzuq4sClyQa8kaab3sZikPxTlVJ1MArbqr4fW24e6YTiwNKYfAVXWBTIUX1Qj-_iXA31TuDxXFk9TqwsHSXS15SbV3YjMMexIkNDdEHO81NletZmBsl3SY14wWRg2SmZ8fcYWsWq11ry7JjCD-MTZvBx2uMbpvTxdHe6KP7W2F5exYL-0zPuNpN9Qbg"/>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: FAQ -->
+        <section class="px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto mb-section-gap-mobile md:mb-section-gap-desktop" id="faq">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+                <div class="md:col-span-4 mb-8 md:mb-0 reveal">
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">Inquiries.</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Clarity on our craft, ingredients, and the Velvet Roast experience.</p>
+                </div>
+                <div class="md:col-span-8 space-y-4 reveal">
+                    <!-- Accordion Item 1 -->
+                    <div class="accordion-item glass-panel rounded-xl overflow-hidden cursor-pointer">
+                        <div class="flex justify-between items-center p-6 bg-surface-container-lowest hover:bg-surface-container-low transition-colors" onclick="toggleAccordion(this)">
+                            <h3 class="font-body-lg text-body-lg font-medium text-primary">Is Amul Kool Café best served chilled?</h3>
+                            <span class="material-symbols-outlined accordion-icon text-on-surface-variant">expand_more</span>
+                        </div>
+                        <div class="accordion-content px-6 bg-surface-container-lowest">
+                            <p class="font-body-md text-body-md text-on-surface-variant">Absolutely. To experience the full depth of the Velvet Roast and the silken texture of our premium milk, we recommend serving it ice cold. The condensation on the glass bottle is part of the sensory journey.</p>
+                        </div>
+                    </div>
+                    <!-- Accordion Item 2 -->
+                    <div class="accordion-item glass-panel rounded-xl overflow-hidden cursor-pointer">
+                        <div class="flex justify-between items-center p-6 bg-surface-container-lowest hover:bg-surface-container-low transition-colors" onclick="toggleAccordion(this)">
+                            <h3 class="font-body-lg text-body-lg font-medium text-primary">Do you use real dairy?</h3>
+                            <span class="material-symbols-outlined accordion-icon text-on-surface-variant">expand_more</span>
+                        </div>
+                        <div class="accordion-content px-6 bg-surface-container-lowest">
+                            <p class="font-body-md text-body-md text-on-surface-variant">Yes, Amul Kool Café is crafted exclusively with pure, high-quality Amul milk. It provides the essential creamy foundation that perfectly balances our robust espresso notes.</p>
+                        </div>
+                    </div>
+                    <!-- Accordion Item 3 -->
+                    <div class="accordion-item glass-panel rounded-xl overflow-hidden cursor-pointer">
+                        <div class="flex justify-between items-center p-6 bg-surface-container-lowest hover:bg-surface-container-low transition-colors" onclick="toggleAccordion(this)">
+                            <h3 class="font-body-lg text-body-lg font-medium text-primary">What is the shelf life of the glass bottles?</h3>
+                            <span class="material-symbols-outlined accordion-icon text-on-surface-variant">expand_more</span>
+                        </div>
+                        <div class="accordion-content px-6 bg-surface-container-lowest">
+                            <p class="font-body-md text-body-md text-on-surface-variant">Unopened, our bottles retain their peak flavor profile for up to 6 months when stored in a cool, dry place away from direct sunlight. Once opened, please refrigerate and consume within 24 hours.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: LEGAL & UTILITY NAVIGATION -->
+        <section class="px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto mb-section-gap-mobile md:mb-section-gap-desktop reveal">
+            <h2 class="font-headline-md text-2xl lg:text-headline-md text-primary border-b border-surface-variant pb-4 mb-8">Documentation &amp; Utilities</h2>
+            <div class="flex flex-wrap gap-4">
+                <a class="px-6 py-3 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm hover:bg-surface-dim transition-colors" href="#legal">Privacy &amp; Terms</a>
+                <button class="px-6 py-3 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm hover:bg-surface-dim transition-colors" onclick="showUtility('404')">View 404 Error</button>
+                <button class="px-6 py-3 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm hover:bg-surface-dim transition-colors" onclick="showUtility('thankyou')">View Thank You</button>
+            </div>
+        </section>
+
+        <!-- SECTION: LEGAL PAGES -->
+        <section class="px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto mb-section-gap-mobile md:mb-section-gap-desktop" id="legal">
+            <div class="glass-panel rounded-2xl p-6 md:p-16 max-w-4xl mx-auto reveal">
+                <div class="flex flex-col md:flex-row gap-12">
+                    <aside class="w-full md:w-1/4">
+                        <nav class="flex flex-row md:flex-col gap-4 font-label-sm text-label-sm overflow-x-auto md:overflow-x-visible pb-4 md:pb-0 border-b border-surface-variant md:border-b-0">
+                            <a class="text-secondary font-bold whitespace-nowrap" href="#legal">Privacy Policy</a>
+                            <a class="text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#legal">Terms &amp; Conditions</a>
+                            <a class="text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap" href="#legal">Cookie Policy</a>
+                        </nav>
+                    </aside>
+                    <article class="w-full md:w-3/4 prose prose-stone">
+                        <h1 class="font-display-lg text-3xl lg:text-headline-lg text-primary mb-6">Privacy Policy.</h1>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-6">Last updated: October 2023</p>
+                        <h3 class="font-headline-md text-xl lg:text-2xl text-primary mb-4 mt-8 font-semibold">1. The Information We Collect</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-4">We believe in transparent opulence. When you interact with the Amul Kool Café digital experience, we collect minimal data required to refine your journey. This includes navigational patterns and preferences, allowing us to serve you better content and relevant offers.</p>
+                        <h3 class="font-headline-md text-xl lg:text-2xl text-primary mb-4 mt-8 font-semibold">2. Use of Your Data</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-4">Your information is treated with the same care as our premium ingredients. We use it solely to enhance your user experience, process transactions securely, and communicate tailored brand stories. We do not sell your data to third-party vendors.</p>
+                        <h3 class="font-headline-md text-xl lg:text-2xl text-primary mb-4 mt-8 font-semibold">3. Digital Cookies</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-4">Unlike the treats you enjoy with our coffee, digital cookies are small data files. We use them to remember your preferences and understand how you navigate our aesthetic layouts. You maintain full control over these settings via your browser.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- UTILITY OVERLAYS (404 Error Page) -->
+    <div class="fixed inset-0 z-[100] bg-background hidden flex-col items-center justify-center p-6 text-center" id="utility-404">
+        <div class="absolute inset-0 opacity-10 pointer-events-none bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCJjXwmHAbbqepAhwvB6ofozZY9EnjeO-1m_hxlvcclY-NXwEfD6XEJ-wJOVFQlLWb08GSxnJP7VNF75iQNYbFC30h88rLbkcZa0ectuq6DmnCzR3B861xgKKWlhxQl_TIgvms4oA9rWfqqdQbL_NTNKEi9L9TahszogUO-jX7khWAR9j8V4bnxndG_qPds-5HfQIbkXmMbQC-01oGEQD86Zb1cTeyrKy3w-xAFP8_bDDLy7y59_jGNJw')"></div>
+        <div class="relative z-10 glass-panel p-8 md:p-12 rounded-3xl max-w-lg w-full flex flex-col items-center">
+            <span class="font-display-lg text-5xl md:text-display-lg text-secondary mb-2">404</span>
+            <h1 class="font-headline-lg text-2xl md:text-headline-lg text-primary mb-4">A Slight Spill.</h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">The page you are looking for seems to have evaporated. Let's guide you back to the menu.</p>
+            <button class="bg-primary text-on-primary font-body-md text-body-md px-8 py-4 rounded-full hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.4)] transition-all shadow-[0_4px_14px_rgba(43,26,18,0.2)] inline-flex items-center gap-2" onclick="hideUtility('utility-404')">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Return Home
+            </button>
+        </div>
+    </div>
+
+    <!-- Thank You Page overlay -->
+    <div class="fixed inset-0 z-[100] bg-primary hidden flex-col items-center justify-center p-6 text-center overflow-hidden" id="utility-thankyou">
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary to-primary mix-blend-screen"></div>
+        <div class="relative z-10 glass-panel !bg-primary-container/40 !border-white/10 p-12 rounded-3xl max-w-lg w-full flex flex-col items-center text-on-primary">
+            <div class="w-20 h-20 rounded-full bg-secondary/20 flex items-center justify-center mb-6">
+                <span class="material-symbols-outlined text-4xl text-tertiary-fixed">check_circle</span>
+            </div>
+            <h1 class="font-headline-lg text-3xl lg:text-headline-lg mb-4 text-tertiary-fixed">Welcome to the Club.</h1>
+            <p class="font-body-lg text-body-lg text-outline-variant mb-8">Your subscription to The Velvet Roast newsletter is confirmed. Prepare for curated opulence delivered straight to your inbox.</p>
+            <button class="bg-transparent border border-tertiary-fixed text-tertiary-fixed font-body-md text-body-md px-8 py-4 rounded-full hover:bg-tertiary-fixed hover:text-primary transition-colors inline-flex items-center gap-2" onclick="hideUtility('utility-thankyou')">
+                Continue Browsing
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w-full py-section-gap-mobile lg:py-section-gap-desktop bg-primary dark:bg-primary-container shadow-[0_-20px_40px_rgba(43,26,18,0.1)] shadow-2xl relative z-50">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto text-on-primary">
+            <div class="col-span-1 md:col-span-2 flex flex-col justify-between mb-8 md:mb-0">
+                <div class="font-headline-lg text-3xl lg:text-headline-lg text-tertiary-fixed-dim mb-4">Amul Kool Café</div>
+                <p class="font-body-md text-body-md text-on-primary/80">© 2026 Amul Kool Café. Crafted for Opulence.</p>
+            </div>
+            <div class="col-span-1 flex flex-col gap-4 font-body-md text-body-md">
+                <h4 class="font-label-sm text-label-sm text-tertiary-fixed uppercase tracking-widest mb-2 font-semibold">Explore</h4>
+                <a class="hover:text-tertiary-fixed transition-colors" href="/about.html">Store Locator</a>
+                <a class="hover:text-tertiary-fixed transition-colors" href="/about.html">About</a>
+                <a class="hover:text-tertiary-fixed transition-colors" href="/about.html">Contact</a>
+            </div>
+            <div class="col-span-1 flex flex-col gap-4 font-body-md text-body-md">
+                <h4 class="font-label-sm text-label-sm text-tertiary-fixed uppercase tracking-widest mb-2 font-semibold">Legal</h4>
+                <a class="hover:text-tertiary-fixed transition-colors" href="/gallery.html#legal">FAQs</a>
+                <a class="hover:text-tertiary-fixed transition-colors" href="/gallery.html#legal">Privacy Policy</a>
+                <a class="hover:text-tertiary-fixed transition-colors" href="/gallery.html#legal">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main Logic Script -->
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
