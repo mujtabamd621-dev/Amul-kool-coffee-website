@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Amul Kool Café - Brand Story &amp; Locator</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#ffe088",
+                        "secondary-container": "#fdb56c",
+                        "on-background": "#1a1c1a",
+                        "background": "#faf9f6",
+                        "surface-container-low": "#f4f3f1",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#774401",
+                        "tertiary": "#735c00",
+                        "tertiary-fixed-dim": "#e9c349",
+                        "surface-container-high": "#e9e8e5",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "surface": "#faf9f6",
+                        "primary": "#0c0301",
+                        "secondary": "#885210",
+                        "on-secondary-fixed-variant": "#693c00",
+                        "on-primary-fixed": "#281810",
+                        "surface-tint": "#71594f",
+                        "on-tertiary-container": "#4f3e00",
+                        "surface-container": "#efeeeb",
+                        "on-secondary-fixed": "#2c1600",
+                        "primary-fixed": "#fcdcce",
+                        "inverse-surface": "#2f312f",
+                        "on-primary-container": "#9b8075",
+                        "on-primary-fixed-variant": "#584238",
+                        "surface-container-highest": "#e3e2e0",
+                        "outline-variant": "#d3c3bd",
+                        "surface-dim": "#dbdad7",
+                        "primary-container": "#2b1a12",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#241a00",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#81746f",
+                        "secondary-fixed": "#ffdcbe",
+                        "surface-variant": "#e3e2e0",
+                        "primary-fixed-dim": "#dfc0b3",
+                        "inverse-on-surface": "#f2f1ee",
+                        "on-surface-variant": "#4f4540",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#cca830",
+                        "inverse-primary": "#dfc0b3",
+                        "on-surface": "#1a1c1a",
+                        "secondary-fixed-dim": "#ffb870",
+                        "surface-bright": "#faf9f6",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max-width": "1440px",
+                        "base": "8px",
+                        "section-gap-mobile": "64px",
+                        "section-gap-desktop": "120px",
+                        "margin-mobile": "24px",
+                        "gutter": "24px",
+                        "margin-desktop": "80px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Bodoni Moda"],
+                        "headline-lg": ["Bodoni Moda"],
+                        "body-md": ["Montserrat"],
+                        "display-lg": ["Bodoni Moda"],
+                        "headline-lg-mobile": ["Bodoni Moda"],
+                        "label-sm": ["Montserrat"],
+                        "body-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "500" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "display-lg": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0.01em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="/assets/css/style.css" rel="stylesheet"/>
+    <style>
+        /* Timeline specific responsive layout styles */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, #e9c349, transparent);
+            z-index: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 24px;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 bg-surface/60 dark:bg-primary/40 backdrop-blur-2xl border-b border-white/10 transition-all duration-300">
+        <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 w-full max-w-container-max-width mx-auto">
+            <a href="/index.html" class="font-headline-md text-2xl lg:text-headline-md font-bold text-primary dark:text-tertiary-fixed">
+                Amul Kool Café
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a class="text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-primary transition-colors" href="/product.html">Product</a>
+                <a class="text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-primary transition-colors" href="/product.html#ingredients">Ingredients</a>
+                <a class="text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-primary transition-colors" href="/product.html#benefits">Benefits</a>
+                <a class="text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-primary transition-colors" href="/product.html#nutrition">Nutrition</a>
+                <a class="text-on-surface-variant dark:text-on-primary-fixed-variant hover:text-primary transition-colors" href="/gallery.html">Gallery</a>
+                <a class="text-secondary dark:text-secondary-fixed-dim font-bold border-b-2 border-secondary pb-1" href="/about.html">Story</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-primary hover:text-secondary dark:text-tertiary-fixed-dim transition-colors group p-2">
+                    <span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">search</span>
+                </button>
+                <button class="bg-primary text-on-primary dark:bg-primary-container dark:text-tertiary-fixed px-6 py-2.5 rounded-full font-label-sm uppercase tracking-widest hover:bg-secondary dark:hover:bg-primary transition-colors shadow-md hover:scale-95 duration-200">
+                    Buy Now
+                </button>
+                <!-- Hamburger Toggle -->
+                <button id="mobile-menu-toggle" class="md:hidden text-primary dark:text-tertiary-fixed p-2 focus:outline-none" aria-label="Toggle Menu">
+                    <span class="material-symbols-outlined text-2xl">menu</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Drawer Overlay -->
+    <div id="mobile-menu-drawer" class="fixed inset-0 z-[100] bg-primary/95 dark:bg-primary/98 backdrop-blur-2xl translate-x-full pointer-events-none mobile-menu-drawer flex flex-col justify-between p-8 md:hidden">
+        <div class="flex justify-between items-center">
+            <span class="font-headline-md text-2xl font-bold text-tertiary-fixed-dim">Amul Kool Café</span>
+            <button id="mobile-menu-close" class="text-tertiary-fixed-dim p-2 focus:outline-none" aria-label="Close Menu">
+                <span class="material-symbols-outlined text-3xl">close</span>
+            </button>
+        </div>
+        <div class="flex flex-col gap-6 text-center my-auto">
+            <a class="text-outline-variant hover:text-tertiary-fixed font-headline-md text-2xl transition-colors py-2" href="/index.html">Home</a>
+            <a class="text-outline-variant hover:text-tertiary-fixed font-headline-md text-2xl transition-colors py-2" href="/product.html">Product</a>
+            <a class="text-outline-variant hover:text-tertiary-fixed font-headline-md text-2xl transition-colors py-2" href="/product.html#ingredients">Ingredients</a>
+            <a class="text-outline-variant hover:text-tertiary-fixed font-headline-md text-2xl transition-colors py-2" href="/product.html#benefits">Benefits</a>
+            <a class="text-outline-variant hover:text-tertiary-fixed font-headline-md text-2xl transition-colors py-2" href="/product.html#nutrition">Nutrition</a>
+            <a class="text-outline-variant hover:text-tertiary-fixed font-headline-md text-2xl transition-colors py-2" href="/gallery.html">Gallery</a>
+            <a class="text-outline-variant hover:text-tertiary-fixed font-headline-md text-2xl transition-colors py-2" href="/about.html">Story</a>
+        </div>
+        <div class="flex flex-col gap-4 items-center">
+            <button class="bg-tertiary-fixed text-primary font-label-sm text-sm uppercase tracking-widest w-full py-4 rounded-full hover:bg-white transition-colors">
+                Buy Now
+            </button>
+            <p class="text-on-primary-fixed-variant text-xs mt-2">© 2026 Amul Kool Café. Crafted for Opulence.</p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-section-gap-mobile md:pb-section-gap-desktop px-margin-mobile md:px-margin-desktop min-h-[500px] md:min-h-[600px] lg:min-h-[716px] flex items-center bg-surface-container-low overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCHiSeslGNYW0EIKwp5z2S_X3y_6uUP9OXsOcZhujVZkqHBO8g9A5Dc8CG2hFcGS1vcJVsLW6ydSjYxjgNI7IYmN9mKeWuH-KfW_SE4WnzkBPmwOtPTAwnwnAP_CSZwI4DA8GqqN0ZBaO4KwC9aunOF8-IocCLTk4gJuXbYDhRBrc_TT-wmFauC0b6jnTHbeGRVDCQpdaVJ8_gqOg-06zikhoXTtqhwQDOtLrCWvUQQIsOSfYwvYICxjQ')"></div>
+        <div class="max-w-container-max-width mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+            <div class="lg:col-span-8 lg:col-start-3 text-center reveal active">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-tertiary-fixed/20 text-on-secondary-container font-label-sm text-label-sm mb-6 border border-tertiary-fixed/30 backdrop-blur-sm">OUR LEGACY</span>
+                <h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-primary mb-6">A Journey of <br/>Crafted Excellence.</h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">From the heart of India's dairy capital to your hands. Discover the meticulous craft and decades of trust poured into every bottle of Amul Kool Café.</p>
+                <button class="inline-flex items-center gap-2 text-secondary hover:text-primary transition-colors group" onclick="document.getElementById('timeline').scrollIntoView()">
+                    <span class="font-label-sm text-label-sm uppercase tracking-widest">Explore the Story</span>
+                    <span class="material-symbols-outlined group-hover:translate-y-1 transition-transform">arrow_downward</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Timeline Section -->
+    <section class="py-section-gap-mobile md:py-section-gap-desktop px-margin-mobile md:px-margin-desktop bg-surface relative" id="timeline">
+        <div class="max-w-container-max-width mx-auto relative">
+            <div class="text-center mb-20 md:mb-24 reveal">
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">The Evolution of Taste</h2>
+                <p class="text-on-surface-variant max-w-xl mx-auto">A commitment to quality that spans generations, blending tradition with modern indulgence.</p>
+            </div>
+            <div class="relative py-12">
+                <!-- Center Line -->
+                <div class="timeline-line hidden md:block"></div>
+                <!-- Timeline Items -->
+                <div class="space-y-20 md:space-y-32">
+                    <!-- Item 1 -->
+                    <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-center">
+                        <div class="md:text-right pl-12 md:pl-0 md:pr-12 relative z-10 order-2 md:order-1 reveal">
+                            <span class="text-tertiary-fixed-dim font-headline-md text-3xl block mb-2">1946</span>
+                            <h3 class="font-headline-md text-headline-lg-mobile text-primary mb-4">The Foundation</h3>
+                            <p class="text-on-surface-variant">Born from a cooperative movement, setting the golden standard for pure, unadulterated milk and dairy excellence.</p>
+                        </div>
+                        <div class="absolute left-6 md:left-1/2 top-0 md:top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-surface border-2 border-tertiary-fixed-dim rounded-full z-20 shadow-[0_0_15px_rgba(233,195,73,0.5)]"></div>
+                        <div class="order-1 md:order-2 pl-12 md:pl-0 reveal" style="transition-delay: 100ms;">
+                            <div class="glass-panel p-2 rounded-xl">
+                                <img alt="Foundation" class="w-full h-[220px] sm:h-[300px] object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdLCXS3ibC_yTbKPcrMIi36vz5gxlv5GuHrvLxx0dqx9aoTy7qUJP8DH-s5knBYeYtfKPe1s_KrqipxnRca2wKadDG1WKUMhDxAVclldGTQiv72c0HXJJFcBv0YG4HzD7DjkJAKg4V8AEYJSAHyaK0iJUmM1rBobbLjfdlfkROE0FKO7MJcKT97uxk86k61qXfNponed-LZBiClbgDgDqMgAu_7ndFqlvc2jjDPZYfnHz1aZ5HWETW_A"/>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-center">
+                        <div class="order-1 md:order-1 pl-12 md:pl-0 md:text-right reveal">
+                            <div class="glass-panel p-2 rounded-xl">
+                                <img alt="Innovation" class="w-full h-[220px] sm:h-[300px] object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGCEdUY1DpNndQR6S0OFlxcz2QPZOk-zGFUIBNnE2xGllrX6LUFhOros1D6z42wgPy4_s6cNFQMXGxC1maKr0IZJQ7l9lLl-jnQMFb-x8rr06BcD8si0ApuZJyq5DQxwmwFGSedd2HhZJR6DqkD85zLsJVc1A7B3C7932fB0eKzw7kV8OnbiO63YbIp5UF91JDwR-3KCLrGiDw1gDhueUNi_aVGO8-pqKDNT8IvVpkDVXA5X4SpqRdcA"/>
+                            </div>
+                        </div>
+                        <div class="absolute left-6 md:left-1/2 top-0 md:top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-surface border-2 border-tertiary-fixed-dim rounded-full z-20 shadow-[0_0_15px_rgba(233,195,73,0.5)]"></div>
+                        <div class="relative z-10 order-2 md:order-2 pl-12 md:pl-12 reveal" style="transition-delay: 100ms;">
+                            <span class="text-tertiary-fixed-dim font-headline-md text-3xl block mb-2">2005</span>
+                            <h3 class="font-headline-md text-headline-lg-mobile text-primary mb-4">The Cool Revolution</h3>
+                            <p class="text-on-surface-variant">The introduction of Amul Kool redefined the beverage category, blending the nutritional goodness of milk with refreshing, contemporary flavors.</p>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24 items-center">
+                        <div class="md:text-right pl-12 md:pl-0 md:pr-12 relative z-10 order-2 md:order-1 reveal">
+                            <span class="text-tertiary-fixed-dim font-headline-md text-3xl block mb-2">Today</span>
+                            <h3 class="font-headline-md text-headline-lg-mobile text-primary mb-4">Café Indulgence</h3>
+                            <p class="text-on-surface-variant">Perfecting the art of cold coffee. A meticulous blend of fine roasted beans and rich dairy, crafted for the modern aficionado seeking accessible luxury.</p>
+                        </div>
+                        <div class="absolute left-6 md:left-1/2 top-0 md:top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-surface border-2 border-tertiary-fixed-dim rounded-full z-20 shadow-[0_0_15px_rgba(233,195,73,0.5)]"></div>
+                        <div class="order-1 md:order-2 pl-12 md:pl-0 reveal" style="transition-delay: 100ms;">
+                            <div class="glass-panel p-2 rounded-xl">
+                                <img alt="Today" class="w-full h-[220px] sm:h-[300px] object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASh6W6i_UepZtbWzncn3IG7Qkexzc_ZqBQTMwUaDcj-5qJyBzOGO4Gh9LDBLMwUh7275AKzYlSi_eeijLuiR8OjQrOuOkRmQo64otiZGbGJxKjAfGfsrHeYXxjHmKcGNjBhohXA5zQgU0LoUcsTb0sHQubpJEJcOPNLUzXRuE9QUchHatdOps4u8FIToeUPgczAy9uSQs1rWhGD45SIevtQ1BexmP_ZYKeeOm8_wDuQilsljxv8F976g"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Statistics Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 md:mt-32 border-t border-surface-dim pt-16 reveal">
+                <div class="text-center">
+                    <span class="block font-display-lg text-4xl lg:text-display-lg text-secondary mb-2">75+</span>
+                    <span class="font-label-sm text-xs sm:text-label-sm text-on-surface-variant uppercase tracking-widest">Years of Trust</span>
+                </div>
+                <div class="text-center">
+                    <span class="block font-display-lg text-4xl lg:text-display-lg text-secondary mb-2">100%</span>
+                    <span class="font-label-sm text-xs sm:text-label-sm text-on-surface-variant uppercase tracking-widest">Pure Dairy</span>
+                </div>
+                <div class="text-center">
+                    <span class="block font-display-lg text-4xl lg:text-display-lg text-secondary mb-2">3.6M</span>
+                    <span class="font-label-sm text-xs sm:text-label-sm text-on-surface-variant uppercase tracking-widest">Farmers Supported</span>
+                </div>
+                <div class="text-center">
+                    <span class="block font-display-lg text-4xl lg:text-display-lg text-secondary mb-2">1</span>
+                    <span class="font-label-sm text-xs sm:text-label-sm text-on-surface-variant uppercase tracking-widest">Perfect Blend</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Locator Section -->
+    <section class="py-section-gap-mobile md:py-section-gap-desktop px-margin-mobile md:px-margin-desktop bg-surface-container-low" id="locator">
+        <div class="max-w-container-max-width mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">Find Your Café Experience</h2>
+                <p class="text-on-surface-variant max-w-xl mx-auto">Locate a chilled bottle of Amul Kool Café near you.</p>
+            </div>
+            <div class="glass-panel rounded-2xl overflow-hidden flex flex-col lg:flex-row h-auto lg:h-[600px] reveal">
+                <!-- Search Panel -->
+                <div class="w-full lg:w-1/3 bg-surface/80 p-6 md:p-8 flex flex-col border-r border-white/20">
+                    <div class="relative mb-6 md:mb-8">
+                        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+                        <input class="w-full bg-surface-container-high border-none rounded-lg pl-12 pr-4 py-4 focus:ring-2 focus:ring-tertiary-fixed text-primary placeholder:text-on-surface-variant transition-shadow" placeholder="Enter city or zip code" type="text" value="Mumbai"/>
+                    </div>
+                    <!-- Added height limits for scrollable item selection on mobile -->
+                    <div class="flex-1 max-h-[300px] lg:max-h-none overflow-y-auto pr-2 space-y-4">
+                        <!-- Location Item 1 -->
+                        <div class="locator-item p-4 rounded-xl hover:bg-surface-container-high transition-colors cursor-pointer group border border-transparent hover:border-surface-dim border-l-4 border-l-secondary bg-surface-container-high">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-primary group-hover:text-secondary transition-colors">Premium Supermart</h4>
+                                <span class="text-xs text-on-surface-variant bg-surface px-2 py-1 rounded">0.8 mi</span>
+                            </div>
+                            <p class="text-sm text-on-surface-variant mb-2">123 Heritage Avenue, Mumbai</p>
+                            <span class="text-xs font-semibold text-tertiary px-2 py-1 rounded bg-tertiary-fixed/20 inline-block">In Stock</span>
+                        </div>
+                        <!-- Location Item 2 -->
+                        <div class="locator-item p-4 rounded-xl hover:bg-surface-container-high transition-colors cursor-pointer group border border-transparent hover:border-surface-dim border-l-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-primary group-hover:text-secondary transition-colors">City Walk Grocers</h4>
+                                <span class="text-xs text-on-surface-variant bg-surface px-2 py-1 rounded">1.2 mi</span>
+                            </div>
+                            <p class="text-sm text-on-surface-variant mb-2">45 Commerce Street, Mumbai</p>
+                            <span class="text-xs font-semibold text-tertiary px-2 py-1 rounded bg-tertiary-fixed/20 inline-block">In Stock</span>
+                        </div>
+                        <!-- Location Item 3 -->
+                        <div class="locator-item p-4 rounded-xl hover:bg-surface-container-high transition-colors cursor-pointer group border border-transparent hover:border-surface-dim border-l-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-primary group-hover:text-secondary transition-colors">Daily Fresh Express</h4>
+                                <span class="text-xs text-on-surface-variant bg-surface px-2 py-1 rounded">2.5 mi</span>
+                            </div>
+                            <p class="text-sm text-on-surface-variant mb-2">88 Sunrise Blvd, Mumbai</p>
+                            <span class="text-xs font-semibold text-on-surface-variant px-2 py-1 rounded bg-surface-dim inline-block">Low Stock</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Map Area -->
+                <div class="w-full lg:w-2/3 h-[300px] sm:h-[400px] lg:h-full relative bg-surface-dim overflow-hidden">
+                    <img alt="Map" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgvn54fe7hKWrk3ESc60tu1UA6bT-j4airrZg4tUeS1u1l4BP2e645XT7CDi7q-_2XcOT-fwqyl4qEEVkrZ20YgbHlyWEJ2yliNqopc7qQIAjnLiNShxN3USPYm1FYo6kZx8Y5iEZbrMRpfnadpjRU_2GXkuVmrJzST36g_Qbl4q9By9XFJULsZCMpzgs0w4NMmw3ABHYqaLw7lH4iCZOaqjxIF-hui6tul-hc5UGZft-6q1YxELo--w"/>
+                    <!-- Map Pin Overlay -->
+                    <div id="map-pin" class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500">
+                        <span class="material-symbols-outlined text-4xl text-secondary drop-shadow-md" style="font-variation-settings: 'FILL' 1;">location_on</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary dark:bg-primary-container text-on-primary w-full py-section-gap-mobile lg:py-section-gap-desktop shadow-2xl relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-cover bg-center pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCRniWk0Lk_BOd6esq_YtfPaF4isYIsrUgmGYWiUypMv-WMrDKyEYoZ2cfLUIDHLe_8uL8L6q5nMOKhrjfS3KO4eeJ70tgEJ6heg-rUrKvp4EkuCvZicl7G4S8Ge8_YMe86mrzIDiHfrJF_9oZQQlPQ_dOP3nAJEvjqU5qP3ctrXxT08JvNeyMKKm9Oal3HffthsG-96a8kO8z_LVkpdIBSbzkPrJUK9KgaKtpRprZDx5n8e3pk_deTcw')"></div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto relative z-10">
+            <!-- Brand Column -->
+            <div class="flex flex-col justify-between space-y-6 md:space-y-0">
+                <div>
+                    <h3 class="font-headline-lg text-3xl lg:text-headline-lg text-tertiary-fixed-dim mb-4">Amul Kool Café</h3>
+                    <p class="text-on-primary-fixed-variant text-sm max-w-xs">Crafted for Opulence. The perfect blend of rich roasted beans and pure dairy.</p>
+                </div>
+                <div class="flex gap-4 pt-4">
+                    <a class="text-on-primary-fixed-variant hover:text-tertiary-fixed transition-colors" href="#">
+                        <span class="material-symbols-outlined">share</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Links Column -->
+            <div class="flex flex-col space-y-4 font-body-md text-body-md text-on-primary">
+                <h4 class="font-label-sm text-tertiary-fixed uppercase tracking-widest mb-2">Explore</h4>
+                <a class="hover:text-tertiary-fixed transition-colors w-fit" href="/about.html">About</a>
+                <a class="hover:text-tertiary-fixed transition-colors w-fit" href="/about.html#locator">Store Locator</a>
+                <a class="hover:text-tertiary-fixed transition-colors w-fit" href="/gallery.html#faq">FAQs</a>
+            </div>
+            <!-- Legal Column -->
+            <div class="flex flex-col space-y-4 font-body-md text-body-md text-on-primary">
+                <h4 class="font-label-sm text-tertiary-fixed uppercase tracking-widest mb-2">Legal</h4>
+                <a class="hover:text-tertiary-fixed transition-colors w-fit" href="/gallery.html#legal">Privacy Policy</a>
+                <a class="hover:text-tertiary-fixed transition-colors w-fit" href="/gallery.html#legal">Terms</a>
+                <a class="hover:text-tertiary-fixed transition-colors w-fit" href="/about.html">Contact</a>
+            </div>
+            <!-- Newsletter Form -->
+            <div class="flex flex-col">
+                <h4 class="font-label-sm text-tertiary-fixed uppercase tracking-widest mb-4">Stay Refreshed</h4>
+                <p class="text-sm text-on-primary-fixed-variant mb-4">Join our list for exclusive offers and new flavors.</p>
+                <form class="flex flex-col gap-3">
+                    <input class="bg-primary-container border border-on-primary-fixed-variant rounded px-4 py-2 text-on-primary focus:border-tertiary-fixed focus:ring-0 transition-colors" placeholder="Email Address" type="email"/>
+                    <button class="bg-tertiary-fixed text-primary font-label-sm text-label-sm uppercase tracking-widest py-3 rounded hover:bg-white transition-colors" type="button" onclick="showUtility('thankyou')">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto mt-16 pt-8 border-t border-white/10 relative z-10 text-center">
+            <p class="font-label-sm text-on-primary-fixed-variant">© 2026 Amul Kool Café. Crafted for Opulence.</p>
+        </div>
+    </footer>
+
+    <!-- Subscription Success Overlay Modal -->
+    <div class="fixed inset-0 z-[100] bg-primary hidden flex-col items-center justify-center p-6 text-center overflow-hidden" id="utility-thankyou">
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary to-primary mix-blend-screen"></div>
+        <div class="relative z-10 glass-panel !bg-primary-container/40 !border-white/10 p-12 rounded-3xl max-w-lg w-full flex flex-col items-center text-on-primary">
+            <div class="w-20 h-20 rounded-full bg-secondary/20 flex items-center justify-center mb-6">
+                <span class="material-symbols-outlined text-4xl text-tertiary-fixed">check_circle</span>
+            </div>
+            <h1 class="font-headline-lg text-3xl lg:text-headline-lg mb-4 text-tertiary-fixed">Welcome to the Club.</h1>
+            <p class="font-body-lg text-body-lg text-outline-variant mb-8">Your subscription to The Velvet Roast newsletter is confirmed. Prepare for curated opulence delivered straight to your inbox.</p>
+            <button class="bg-transparent border border-tertiary-fixed text-tertiary-fixed font-body-md text-body-md px-8 py-4 rounded-full hover:bg-tertiary-fixed hover:text-primary transition-colors inline-flex items-center gap-2" onclick="hideUtility('utility-thankyou')">
+                Continue Browsing
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Logic Script -->
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
