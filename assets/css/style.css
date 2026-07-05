@@ -1,0 +1,203 @@
+/* Shared Premium Styling System for Amul Kool Café */
+
+/* Custom Variables and Reset */
+:root {
+    --color-primary: #0c0301;
+    --color-secondary: #885210;
+    --color-tertiary: #735c00;
+    --color-tertiary-fixed: #ffe088;
+    --color-tertiary-fixed-dim: #e9c349;
+    --color-background: #faf9f6;
+    --color-primary-container: #2b1a12;
+    --color-on-primary: #ffffff;
+    --color-outline-variant: #d3c3bd;
+    --color-surface: #faf9f6;
+}
+
+/* Glassmorphism Panels */
+.glass-panel {
+    background: rgba(250, 249, 246, 0.65);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 20px 40px rgba(43, 26, 18, 0.06);
+}
+
+.dark-glass {
+    background: rgba(43, 26, 18, 0.7);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 224, 136, 0.2);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3);
+}
+
+.premium-shadow {
+    box-shadow: 0 20px 40px rgba(43, 26, 18, 0.08);
+}
+
+/* Animations */
+.animate-float {
+    animation: float-anim 6s ease-in-out infinite;
+}
+
+@keyframes float-anim {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Scroll Reveal Mechanism */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Text Gradients */
+.text-gradient-gold {
+    background: linear-gradient(135deg, #ffe088 0%, #e9c349 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.text-gradient-caramel {
+    background: linear-gradient(135deg, #885210 0%, #e9c349 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary-container);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-secondary);
+}
+
+/* Masonry Grid Layout */
+.masonry-grid {
+    column-count: 1;
+    column-gap: 24px;
+}
+
+@media (min-width: 640px) {
+    .masonry-grid { column-count: 2; }
+}
+
+@media (min-width: 1024px) {
+    .masonry-grid { column-count: 3; }
+}
+
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: 24px;
+}
+
+/* Accordion Animation */
+.accordion-content {
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 500px;
+    opacity: 1;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.accordion-icon {
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+/* Mobile Nav Styles */
+body.nav-open {
+    overflow: hidden;
+}
+
+.mobile-menu-drawer {
+    transition: transform 0.4s cubic-bezier(0.5, 0, 0, 1), opacity 0.4s ease;
+}
+
+/* Scroll Animation Specific Styles */
+.scroll-track-container {
+    position: relative;
+    height: 300vh; /* 3 screens tall */
+    background: #0c0301; /* Match dark theme primary container */
+}
+
+.sticky-hero-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text-card {
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Preloader styles */
+#site-preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #0c0301;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#site-preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.progress-bar-container {
+    width: 240px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(135deg, #ffe088 0%, #e9c349 100%);
+    transition: width 0.1s ease;
+}
+
