@@ -100,7 +100,16 @@
     </script>
     <link href="/assets/css/style.css" rel="stylesheet"/>
 </head>
-<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden overflow-hidden selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+    <!-- Preloader Screen -->
+    <div id="site-preloader">
+        <h2 class="font-headline-md text-2xl text-tertiary-fixed font-bold tracking-wider animate-pulse">AMUL KOOL CAFÉ</h2>
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill"></div>
+        </div>
+        <p class="progress-bar-text font-label-sm text-xs text-outline-variant uppercase tracking-widest mt-4">LOADING EXPERIENCE: 0%</p>
+    </div>
+
     <!-- Navigation -->
     <nav id="navbar" class="fixed top-0 w-full z-50 bg-surface/60 dark:bg-primary/40 backdrop-blur-2xl border-b border-white/10 transition-all duration-300">
         <div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 w-full max-w-container-max-width mx-auto">
@@ -155,166 +164,215 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-24">
-        <!-- WebGL Background -->
-        <div class="absolute inset-0 z-0">
-            <!-- STITCH_SHADER_START:ANIMATION_3 class="absolute inset-0 w-full h-full" -->
-            <div class="absolute inset-0 w-full h-full" style="display:block;">
-                <canvas id="shader-canvas-ANIMATION_3" style="display:block;width:100%;height:100%"></canvas>
-                <script>
-                (function() {
-                  const canvas = document.getElementById('shader-canvas-ANIMATION_3');
-                  function syncSize() {
-                    const w = canvas.clientWidth  || 1280;
-                    const h = canvas.clientHeight || 720;
-                    if (canvas.width !== w || canvas.height !== h) {
-                      canvas.width  = w;
-                      canvas.height = h;
+    <!-- Hero Scroll Animation Track -->
+    <div class="relative scroll-track-container">
+        <!-- Sticky viewport container -->
+        <div class="sticky-hero-wrapper">
+            <!-- WebGL Particles Background -->
+            <div class="absolute inset-0 z-0">
+                <!-- STITCH_SHADER_START:ANIMATION_3 class="absolute inset-0 w-full h-full" -->
+                <div class="absolute inset-0 w-full h-full" style="display:block;">
+                    <canvas id="shader-canvas-ANIMATION_3" style="display:block;width:100%;height:100%"></canvas>
+                    <script>
+                    (function() {
+                      const canvas = document.getElementById('shader-canvas-ANIMATION_3');
+                      function syncSize() {
+                        const w = canvas.clientWidth  || 1280;
+                        const h = canvas.clientHeight || 720;
+                        if (canvas.width !== w || canvas.height !== h) {
+                          canvas.width  = w;
+                          canvas.height = h;
+                        }
+                      }
+                      if (typeof ResizeObserver !== 'undefined') {
+                        new ResizeObserver(syncSize).observe(canvas);
+                      }
+                      syncSize();
+
+                      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                      if (!gl) return;
+                      const vs = `attribute vec2 a_position;
+                    varying vec2 v_texCoord;
+                    void main() {
+                      v_texCoord = a_position * 0.5 + 0.5;
+                      gl_Position = vec4(a_position, 0.0, 1.0);
+                    }`;
+                      const fs = `precision highp float;
+                    varying vec2 v_texCoord;
+                    uniform float u_time;
+                    uniform vec2 u_resolution;
+                    uniform vec2 u_mouse;
+
+                    float random(vec2 st) {
+                        return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
                     }
-                  }
-                  if (typeof ResizeObserver !== 'undefined') {
-                    new ResizeObserver(syncSize).observe(canvas);
-                  }
-                  syncSize();
 
-                  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-                  if (!gl) return;
-                  const vs = `attribute vec2 a_position;
-                varying vec2 v_texCoord;
-                void main() {
-                  v_texCoord = a_position * 0.5 + 0.5;
-                  gl_Position = vec4(a_position, 0.0, 1.0);
-                }`;
-                  const fs = `precision highp float;
-                varying vec2 v_texCoord;
-                uniform float u_time;
-                uniform vec2 u_resolution;
-                uniform vec2 u_mouse;
+                    void main() {
+                        vec2 uv = v_texCoord;
+                        vec3 color = vec3(0.168, 0.102, 0.071); // #2B1A12 base
 
-                float random(vec2 st) {
-                    return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
-                }
+                        // Subtle gradient
+                        color += vec3(0.05) * (1.0 - uv.y);
 
-                void main() {
-                    vec2 uv = v_texCoord;
-                    vec3 color = vec3(0.168, 0.102, 0.071); // #2B1A12 base
+                        // Particles (Coffee beans/Floating dust)
+                        for(float i = 0.0; i < 40.0; i++) {
+                            vec2 pos = vec2(random(vec2(i, 1.0)), random(vec2(i, 2.0)));
+                            pos.y = fract(pos.y - u_time * 0.05 * (0.5 + random(vec2(i, 3.0))));
+                            
+                            float dist = distance(uv, pos);
+                            float size = 0.002 + 0.001 * sin(u_time + i);
+                            float blur = 0.01;
+                            
+                            float sparkle = smoothstep(size + blur, size, dist);
+                            color += sparkle * vec3(0.77, 0.52, 0.26) * 0.3; // Caramel sparkle
+                        }
 
-                    // Subtle gradient
-                    color += vec3(0.05) * (1.0 - uv.y);
+                        // Mouse interactive glow
+                        float mouseDist = distance(uv, u_mouse / u_resolution);
+                        color += (1.0 - smoothstep(0.0, 0.4, mouseDist)) * vec3(0.2, 0.1, 0.05);
 
-                    // Particles (Coffee beans/Floating dust)
-                    for(float i = 0.0; i < 40.0; i++) {
-                        vec2 pos = vec2(random(vec2(i, 1.0)), random(vec2(i, 2.0)));
-                        pos.y = fract(pos.y - u_time * 0.05 * (0.5 + random(vec2(i, 3.0))));
+                        gl_FragColor = vec4(color, 1.0);
+                    }`;
+                      function cs(type, src) {
+                        const s = gl.createShader(type);
+                        gl.shaderSource(s, src);
+                        gl.compileShader(s);
+                        return s;
+                      }
+                      const prog = gl.createProgram();
+                      gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+                      gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+                      gl.linkProgram(prog);
+                      gl.useProgram(prog);
+                      const buf = gl.createBuffer();
+                      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+                      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+                      const pos = gl.getAttribLocation(prog, 'a_position');
+                      gl.enableVertexAttribArray(pos);
+                      gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+                      const uTime = gl.getUniformLocation(prog, 'u_time');
+                      const uRes = gl.getUniformLocation(prog, 'u_resolution');
+                      const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+                      let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+                      window.addEventListener('mousemove', (event) => {
+                        const rect = canvas.getBoundingClientRect();
+                        if (rect.width && rect.height) {
+                          const nx = (event.clientX - rect.left) / rect.width;
+                          const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+                          mouse.x = nx * canvas.width;
+                          mouse.y = ny * canvas.height;
+                        }
+                      });
+
+                      function render(t) {
+                        if (typeof ResizeObserver === 'undefined') syncSize();
+                        gl.viewport(0, 0, canvas.width, canvas.height);
+                        if (uTime) gl.uniform1f(uTime, t * 0.001);
+                        if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+                        if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+                        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+                        requestAnimationFrame(render);
+                      }
+                      render(0);
+                    })();
+                    </script>
+                </div>
+                <!-- STITCH_SHADER_END:ANIMATION_3 -->
+                <div class="absolute inset-0 bg-gradient-to-b from-surface/40 via-transparent to-surface z-10"></div>
+            </div>
+
+            <!-- Scroll Animation Content Overlay -->
+            <div class="relative z-20 w-full max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop h-full flex items-center">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center w-full h-full">
+                    
+                    <!-- Left Side: Fading Text Cards -->
+                    <div class="lg:col-span-5 relative flex items-center h-[50vh] lg:h-full z-30 order-2 lg:order-1 mt-6 lg:mt-0">
                         
-                        float dist = distance(uv, pos);
-                        float size = 0.002 + 0.001 * sin(u_time + i);
-                        float blur = 0.01;
+                        <!-- Text Card 1: Home/Intro -->
+                        <div id="hero-text-1" class="hero-text-card absolute inset-0 flex flex-col items-start justify-center space-y-4 lg:space-y-8 transition-all duration-500">
+                            <div class="inline-flex items-center space-x-2 bg-surface-container/50 backdrop-blur-md px-4 py-2 rounded-full border border-outline-variant/30">
+                                <span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span>
+                                <span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">Premium Milk Coffee</span>
+                            </div>
+                            <h1 class="font-display-lg text-4xl sm:text-6xl lg:text-display-lg text-primary-container leading-tight">
+                                Cool Coffee. <br/>
+                                <span class="text-secondary italic">Bold Energy.</span><br/>
+                                Anytime.
+                            </h1>
+                            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                                Refreshing milk coffee crafted from real milk and premium roasted beans for the perfect on-the-go luxury experience.
+                            </p>
+                            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 w-full pt-4">
+                                <button class="bg-primary-container text-tertiary-fixed px-10 py-4 rounded-full font-label-sm uppercase tracking-widest hover:bg-primary transition-all duration-300 shadow-[0_12px_24px_rgba(43,26,18,0.25)] hover:shadow-[0_16px_32px_rgba(43,26,18,0.3)] hover:-translate-y-1">
+                                    Buy Now
+                                </button>
+                                <a href="/about.html" class="glass-panel text-primary-container px-10 py-4 rounded-full font-label-sm uppercase tracking-widest hover:bg-white/40 transition-all duration-300 flex items-center justify-center space-x-2 group">
+                                    <span>Learn More</span>
+                                    <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Text Card 2: Caramel Crema spotlight -->
+                        <div id="hero-text-2" class="hero-text-card absolute inset-0 opacity-0 translate-y-8 pointer-events-none flex flex-col items-start justify-center space-y-4 lg:space-y-8 transition-all duration-500">
+                            <div class="inline-flex items-center space-x-2 bg-surface-container/50 backdrop-blur-md px-4 py-2 rounded-full border border-outline-variant/30">
+                                <span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+                                <span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">Pure Indulgence</span>
+                            </div>
+                            <h2 class="font-display-lg text-4xl sm:text-6xl lg:text-display-lg text-primary-container leading-tight">
+                                Velvety Taste. <br/>
+                                <span class="text-secondary italic">Rich Crema.</span>
+                            </h2>
+                            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                                Every drop is packed with a creamy texture, balanced sweetness, and the luxurious aroma of freshly brewed coffee.
+                            </p>
+                            <div class="pt-4">
+                                <a href="/product.html" class="glass-panel text-primary-container px-10 py-4 rounded-full font-label-sm uppercase tracking-widest hover:bg-white/40 transition-all duration-300 inline-flex items-center space-x-2 group">
+                                    <span>Product Details</span>
+                                    <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Text Card 3: Ready Energy Boost -->
+                        <div id="hero-text-3" class="hero-text-card absolute inset-0 opacity-0 translate-y-8 pointer-events-none flex flex-col items-start justify-center space-y-4 lg:space-y-8 transition-all duration-500">
+                            <div class="inline-flex items-center space-x-2 bg-surface-container/50 backdrop-blur-md px-4 py-2 rounded-full border border-outline-variant/30">
+                                <span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span>
+                                <span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">Revitalize</span>
+                            </div>
+                            <h2 class="font-display-lg text-4xl sm:text-6xl lg:text-display-lg text-primary-container leading-tight">
+                                Instant Chill. <br/>
+                                <span class="text-secondary italic">Bold Energy.</span>
+                            </h2>
+                            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+                                Power up your afternoon slumps with the natural kick of premium roasted caffeine, served ice-cold.
+                            </p>
+                            <div class="pt-4">
+                                <button class="bg-primary-container text-tertiary-fixed px-10 py-4 rounded-full font-label-sm uppercase tracking-widest hover:bg-primary transition-all duration-300">
+                                    Order Coffee
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Side: Canvas with Animation Frames -->
+                    <div class="lg:col-span-7 flex justify-center items-center relative h-[40vh] lg:h-full z-20 order-1 lg:order-2">
+                        <!-- Decorative glow behind bottle canvas -->
+                        <div class="absolute w-[120%] h-[120%] bg-[radial-gradient(circle_at_center,rgba(253,181,108,0.15)_0%,transparent_70%)] -z-10 blur-3xl"></div>
                         
-                        float sparkle = smoothstep(size + blur, size, dist);
-                        color += sparkle * vec3(0.77, 0.52, 0.26) * 0.3; // Caramel sparkle
-                    }
-
-                    // Mouse interactive glow
-                    float mouseDist = distance(uv, u_mouse / u_resolution);
-                    color += (1.0 - smoothstep(0.0, 0.4, mouseDist)) * vec3(0.2, 0.1, 0.05);
-
-                    gl_FragColor = vec4(color, 1.0);
-                }`;
-                  function cs(type, src) {
-                    const s = gl.createShader(type);
-                    gl.shaderSource(s, src);
-                    gl.compileShader(s);
-                    return s;
-                  }
-                  const prog = gl.createProgram();
-                  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
-                  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
-                  gl.linkProgram(prog);
-                  gl.useProgram(prog);
-                  const buf = gl.createBuffer();
-                  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-                  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
-                  const pos = gl.getAttribLocation(prog, 'a_position');
-                  gl.enableVertexAttribArray(pos);
-                  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
-                  const uTime = gl.getUniformLocation(prog, 'u_time');
-                  const uRes = gl.getUniformLocation(prog, 'u_resolution');
-                  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
-
-                  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
-                  window.addEventListener('mousemove', (event) => {
-                    const rect = canvas.getBoundingClientRect();
-                    if (rect.width && rect.height) {
-                      const nx = (event.clientX - rect.left) / rect.width;
-                      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
-                      mouse.x = nx * canvas.width;
-                      mouse.y = ny * canvas.height;
-                    }
-                  });
-
-                  function render(t) {
-                    if (typeof ResizeObserver === 'undefined') syncSize();
-                    gl.viewport(0, 0, canvas.width, canvas.height);
-                    if (uTime) gl.uniform1f(uTime, t * 0.001);
-                    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
-                    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
-                    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-                    requestAnimationFrame(render);
-                  }
-                  render(0);
-                })();
-                </script>
-            </div>
-            <!-- STITCH_SHADER_END:ANIMATION_3 -->
-            <div class="absolute inset-0 bg-gradient-to-b from-surface/40 via-transparent to-surface z-10"></div>
-        </div>
-        <div class="relative z-20 w-full max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
-            <!-- Hero Text -->
-            <div class="lg:col-span-5 flex flex-col items-start space-y-8 reveal active">
-                <div class="inline-flex items-center space-x-2 bg-surface-container/50 backdrop-blur-md px-4 py-2 rounded-full border border-outline-variant/30">
-                    <span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span>
-                    <span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">Premium Milk Coffee</span>
-                </div>
-                <h1 class="font-display-lg text-4xl sm:text-6xl lg:text-display-lg text-primary-container leading-tight">
-                    Cool Coffee. <br/>
-                    <span class="text-secondary italic">Bold Energy.</span><br/>
-                    Anytime. Anywhere.
-                </h1>
-                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
-                    Refreshing milk coffee crafted from real milk and premium roasted beans for the perfect on-the-go luxury experience.
-                </p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 w-full pt-4">
-                    <button class="bg-primary-container text-tertiary-fixed px-10 py-4 rounded-full font-label-sm uppercase tracking-widest hover:bg-primary transition-all duration-300 shadow-[0_12px_24px_rgba(43,26,18,0.25)] hover:shadow-[0_16px_32px_rgba(43,26,18,0.3)] hover:-translate-y-1">
-                        Buy Now
-                    </button>
-                    <a href="/about.html" class="glass-panel text-primary-container px-10 py-4 rounded-full font-label-sm uppercase tracking-widest hover:bg-white/40 transition-all duration-300 flex items-center justify-center space-x-2 group">
-                        <span>Learn More</span>
-                        <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                    </a>
-                </div>
-            </div>
-            <!-- Hero Image -->
-            <div class="lg:col-span-7 flex justify-center items-center relative mt-16 lg:mt-0 reveal active">
-                <!-- Decorative Elements -->
-                <div class="absolute w-[120%] h-[120%] bg-[radial-gradient(circle_at_center,rgba(253,181,108,0.1)_0%,transparent_70%)] -z-10 blur-3xl"></div>
-                <!-- Product Bottle -->
-                <div class="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[400px] animate-float z-20">
-                    <img alt="Amul Kool Cafe Bottle" class="w-full h-auto drop-shadow-2xl filter contrast-125 saturate-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDr61SfQ2Aa2MqmF8uyr8BEmaxjKURGGWC7EenVwJwHorxAU2xcNkwpfO9GToaAzlDzvXLYDKhEKcEAKRtv8jmYgoqm1W36dLH3ChWhWzpGfQ0TvtNJ32Yt-7D6mYd5jBJbLExDU0hGIYIjwXDUuN_SA51fbLfGQhd_0uVwE1oA9qyLr2bidwhOEvTJPZr0OXc0YsFeAT5ZB5zokd4OKoBxEGJUKJXZs_5dIHwFEtu10LGEYw_DKVMLfzf2oq700CR_rfo"/>
-                    <!-- Floating Chips (Hidden on small mobile screens to prevent horizontal overflow) -->
-                    <div class="absolute top-1/4 -right-8 sm:-right-12 glass-panel px-4 py-2 rounded-full hidden sm:flex items-center space-x-2 animate-[float_4s_ease-in-out_infinite_reverse]">
-                        <span class="material-symbols-outlined text-secondary text-sm">water_drop</span>
-                        <span class="font-label-sm text-xs text-primary-container">Real Milk</span>
+                        <!-- The Canvas element -->
+                        <div class="relative w-full h-full max-w-[280px] sm:max-w-[320px] lg:max-w-[420px] flex items-center justify-center">
+                            <canvas id="product-canvas" class="w-full h-full max-h-[85vh] object-contain drop-shadow-[0_25px_40px_rgba(12,3,1,0.4)] filter contrast-125 saturate-110"></canvas>
+                        </div>
                     </div>
-                    <div class="absolute bottom-1/3 -left-8 sm:-left-16 glass-panel px-4 py-2 rounded-full hidden sm:flex items-center space-x-2 animate-[float_5s_ease-in-out_infinite]">
-                        <span class="material-symbols-outlined text-tertiary text-sm">local_cafe</span>
-                        <span class="font-label-sm text-xs text-primary-container">Rich Crema</span>
-                    </div>
+
                 </div>
             </div>
+
         </div>
-    </section>
+    </div>
 
     <!-- Why Choose Section (Bento Grid) -->
     <section class="py-section-gap-mobile lg:py-section-gap-desktop bg-surface-container-low relative overflow-hidden">
