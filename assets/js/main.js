@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 5. Store Locator search selection
     setupStoreLocator();
+
+    // 6. Scroll-driven Product Canvas Animation
+    setupScrollAnimation();
 });
 
 // Mobile menu setup
@@ -159,3 +162,161 @@ function setupStoreLocator() {
         });
     });
 }
+
+// 6. Scroll-driven Product Canvas Animation
+function setupScrollAnimation() {
+    const canvas = document.getElementById("product-canvas");
+    const container = document.querySelector(".scroll-track-container");
+    const preloader = document.getElementById("site-preloader");
+    const progressFill = document.querySelector(".progress-bar-fill");
+    const progressText = document.querySelector(".progress-bar-text");
+
+    if (!canvas || !container) return;
+
+    const ctx = canvas.getContext("2d");
+    const frameCount = 271;
+    const images = [];
+    let loadedCount = 0;
+
+    // Generate path for a given frame index
+    const currentFrame = index => {
+        const frameStr = String(index).padStart(3, '0');
+        return `/assets/frames/ezgif-frame-${frameStr}.jpg`;
+    };
+
+    // Responsive Canvas Resizing
+    function resizeCanvas() {
+        const dpr = window.devicePixelRatio || 1;
+        const rect = canvas.parentElement.getBoundingClientRect();
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        ctx.scale(dpr, dpr);
+        
+        // Redraw current frame on resize
+        drawFrame(getCurrentFrameIndex());
+    }
+
+    // Preload all 271 images
+    for (let i = 1; i <= frameCount; i++) {
+        const img = new Image();
+        img.src = currentFrame(i);
+        img.onload = () => {
+            loadedCount++;
+            const percent = Math.round((loadedCount / frameCount) * 100);
+            
+            if (progressFill) progressFill.style.width = `${percent}%`;
+            if (progressText) progressText.textContent = `LOADING EXPERIENCE: ${percent}%`;
+
+            if (loadedCount === frameCount) {
+                // Preloading complete
+                setTimeout(() => {
+                    if (preloader) {
+                        preloader.classList.add("fade-out");
+                        // Allow scrolling once loaded
+                        document.body.classList.remove("overflow-hidden");
+                    }
+                }, 400);
+                
+                resizeCanvas();
+                window.addEventListener("resize", resizeCanvas);
+                window.addEventListener("scroll", handleScroll);
+                // Initial draw
+                drawFrame(1);
+            }
+        };
+        img.onerror = () => {
+            loadedCount++;
+            if (loadedCount === frameCount) {
+                if (preloader) preloader.classList.add("fade-out");
+                resizeCanvas();
+            }
+        };
+        images.push(img);
+    }
+
+    // Helper to draw a specific frame index (1-indexed)
+    function drawFrame(index) {
+        const img = images[index - 1];
+        if (!img || !img.complete) return;
+
+        // Clear canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Aspect ratio contain with scaling
+        const canvasWidth = canvas.width / (window.devicePixelRatio || 1);
+        const canvasHeight = canvas.height / (window.devicePixelRatio || 1);
+        const imgRatio = img.width / img.height;
+        const canvasRatio = canvasWidth / canvasHeight;
+
+        let drawWidth, drawHeight, x, y;
+
+        if (imgRatio > canvasRatio) {
+            drawWidth = canvasWidth;
+            drawHeight = canvasWidth / imgRatio;
+        } else {
+            drawHeight = canvasHeight;
+            drawWidth = canvasHeight * imgRatio;
+        }
+
+        x = (canvasWidth - drawWidth) / 2;
+        y = (canvasHeight - drawHeight) / 2;
+
+        ctx.drawImage(img, x, y, drawWidth, drawHeight);
+    }
+
+    // Calculate current frame index based on scroll position
+    function getCurrentFrameIndex() {
+        const rect = container.getBoundingClientRect();
+        const scrollHeight = rect.height - window.innerHeight;
+        const scrolled = -rect.top;
+        
+        let scrollFraction = scrolled / scrollHeight;
+        if (scrollFraction < 0) scrollFraction = 0;
+        if (scrollFraction > 1) scrollFraction = 1;
+
+        // Map scroll fraction (0 to 1) to frame index (1 to 271)
+        return Math.min(
+            frameCount,
+            Math.max(1, Math.ceil(scrollFraction * frameCount))
+        );
+    }
+
+    // Scroll handler
+    function handleScroll() {
+        const frameIndex = getCurrentFrameIndex();
+        requestAnimationFrame(() => drawFrame(frameIndex));
+
+        // Animate text overlays based on scroll fraction
+        animateTextOverlays();
+    }
+
+    // Text card cross-fading intervals
+    function animateTextOverlays() {
+        const rect = container.getBoundingClientRect();
+        const scrollHeight = rect.height - window.innerHeight;
+        const scrolled = -rect.top;
+        const progress = Math.min(1, Math.max(0, scrolled / scrollHeight));
+
+        const card1 = document.getElementById("hero-text-1");
+        const card2 = document.getElementById("hero-text-2");
+        const card3 = document.getElementById("hero-text-3");
+
+        // Helper to update card opacity and translation
+        function updateCard(card, show) {
+            if (!card) return;
+            if (show) {
+                card.classList.remove("opacity-0", "translate-y-8", "pointer-events-none");
+                card.classList.add("opacity-100", "translate-y-0");
+            } else {
+                card.classList.remove("opacity-100", "translate-y-0");
+                card.classList.add("opacity-0", "translate-y-8", "pointer-events-none");
+            }
+        }
+
+        // Section thresholds (3 parts)
+        updateCard(card1, progress <= 0.25);
+        updateCard(card2, progress > 0.30 && progress <= 0.68);
+        updateCard(card3, progress > 0.72);
+    }
+}
+
